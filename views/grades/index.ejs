@@ -1,0 +1,15 @@
+<h2>البحث عن مرحلة</h2>
+<form action="/grades" method="get">
+  <div>
+    <label for="name">اسم المرحلة</label>
+    <input type="text" name="name" id="name" value="<%= searchOptions.name%>">
+  </div>
+  <button type="submit">بحث</button>
+</form>
+<div>
+  <% grades.forEach(grade => { %>
+    <a href="/grades/<%= grade.id %>">
+      <p><%= grade.name %></p>
+    </a>
+    <% }) %>
+</div>

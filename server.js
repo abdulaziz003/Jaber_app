@@ -7,11 +7,13 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const app = express();
 
 // Import Index Router
 const indexRouter = require('./routers/index');
 const officeRouter = require('./routers/offices');
+const gradeRouter = require('./routers/grades');
 
 // Setting View Engine To Be EJS
 app.set('view engine', 'ejs');
@@ -23,6 +25,8 @@ app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
 // Using body-parser
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
+// Using method-override
+app.use(methodOverride('_method'));
 
 
 // Import mongoose to the application
@@ -38,6 +42,8 @@ db.once('open', () => console.log('connected to mongoDB :) '));
 app.use('/', indexRouter);
 // Offices Router
 app.use('/offices', officeRouter);
+// Grades Router
+app.use('/grades', gradeRouter);
 
 
 app.listen(process.env.PORT || 3000, ()=> console.log('Server is running...'));

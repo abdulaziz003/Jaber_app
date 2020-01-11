@@ -1,0 +1,15 @@
+<h2>البحث عن مكتب</h2>
+<form action="/offices" method="get">
+  <label for="office-name">الاسم</label>
+  <input type="text" name="name" id="office-name" value="<%= searchOptions.name%>">
+  <button type="submit">بحث</button>
+</form>
+<br>
+<% offices.forEach(office => { %>
+  <div>
+    <%= office.name %>
+  </div>
+  <a href="/offices/<%= office.id %>">عرض</a>
+  <a href="/offices/<%= office.id %>/edit">تعديل</a>
+  <%- include('../partials/deleteForm', { url: `/offices/${office.id}` }) %>
+    <% }) %>

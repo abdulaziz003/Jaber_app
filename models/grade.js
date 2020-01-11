@@ -8,7 +8,7 @@ const gradeSchema = new mongoose.Schema({
   office: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: 'office'
+    ref: 'Office'
   }
 })
 

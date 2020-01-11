@@ -1,0 +1,14 @@
+<h2>
+  <%= grade.name %>
+</h2>
+<div>مكتب تعليم:
+  <%= grade.office.name %>
+</div>
+<div> الطلاب:
+  
+</div>
+
+
+<a href="/grades/<%= grade.id %>/edit">تعديل</a>
+<%- include('../partials/deleteForm', { url: `/grades/${grade.id}` }) %>
+  <a href="/offices/<%= grade.office.id %>">عرض المكتب</a>

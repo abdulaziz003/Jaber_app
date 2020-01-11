@@ -1,0 +1,6 @@
+<h2>تعديل بيانات مرحلة</h2>
+<form action="/grades/<%= grade.id %>?_method=PUT" method="post">
+  <%- include('_form_fields') %>
+    <button type="submit">تحديث</button>
+    <a href="/grades/<%= grade.id %>">إلغاء</a>
+</form>

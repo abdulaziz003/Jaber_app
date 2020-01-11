@@ -1,0 +1,15 @@
+<h2>
+  <%= office.name %>
+</h2>
+<a href="/offices/<%= office.id %>/edit">تعديل</a>
+<%- include('../partials/deleteForm', { url: `/offices/${office.id}` }) %>
+  <% if (grades.length > 0 ) { %>
+    <h2>المراحل التعليمية</h2>
+    <% grades.forEach(grade => { %>
+      <a href="/grades/<%= grade.id %>">
+        <p><%= grade.name %></p>
+      </a>
+    <% }) %>
+  <% }else { %>
+    <h2>لا توجد مراحل داخل المكتب</h2>
+<% } %>
